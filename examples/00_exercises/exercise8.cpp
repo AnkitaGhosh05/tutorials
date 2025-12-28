@@ -14,8 +14,8 @@
 
 int main()
 {
-    std::vector<double> v(1000000, 1.0);
-    hpx::reduce(hpx::execution::par, std::begin(v), std::end(v), 0.0,
+    hpx::partitioned_vector<double> v(1000000, 1.0);
+    hpx::reduce(hpx::execution::par, v.begin(), v.end(), 0.0,
         std::plus<double>());
 
     return 0;
